@@ -25,7 +25,7 @@ for (int i = 0; i < resultMin; i++)
     result[i] = f[i] + g[i];
 }
 
-for (int i = 0; i < resultMax; i++)
+for (int i = resultMin; i < resultMax; i++)
 {
   if (resultMax == powG) result[i] = g[i];
    else result[i] = f[i];
@@ -75,7 +75,7 @@ string Print(int[] f)
     int t = f[i];
     if (f[i] == 0) continue;
     if (f[i] < 0) { output += " - "; }
-    else if (i != 0 && (i-1) != 0) { output += " + "; } 
+    else if (i != 0) { output += " + "; } 
     //добавила условие, чтобы убрать знак "+" в начале задачи: (+ 1x - 2x^2...) → (1x - 2x^2...)
                                                     
      
@@ -90,11 +90,11 @@ string Print(int[] f)
 
 int[] f = { 1, 0, 0, 0, -9, -6 };
 int[] g = { 0, 1, -2, -5, 0, 0, 7, 3};
+int[] s = Sum(f, g);
+int[] d = Dif(f, g);
 Console.WriteLine(Print(f));
 Console.WriteLine(Print(g));
-System.Console.WriteLine();
-int[] s = Sum(f, g);
+Console.WriteLine();
 Console.WriteLine($"Сумма = {Print(s)}");
-int[] d = Dif(f, g);
 Console.WriteLine($"Разность = {Print(d)}");
-System.Console.WriteLine();
+Console.WriteLine();
